@@ -1,0 +1,62 @@
+op=int(input())
+for _ in range(op):
+    np=int(input())
+    po=list(map(int,input().split()))
+
+    kal=[]
+    counts=[]
+    i=0
+    flag = True
+    while(i<np):
+        item = po[i]
+        if item in kal:
+            print("NO")
+            flag = False
+            break
+        else:
+            kal.append(item)
+            c=0
+            while(i<np and po[i] == item):
+                # print(i)
+                c+=1
+                i+=1
+            if(c in counts):
+                print("NO")
+                flag = False
+                break
+            else:
+                counts.append(c)
+    if(flag):
+        print("YES")
+# ques link:
+# https://www.codechef.com/COOK118B/problems/CHEFRECP
+# # ques:
+# In Chefland, types of ingredients are represented by integers and recipes are represented by sequences of ingredients that are used when cooking. One day, Chef found a recipe represented by a sequence A1,A2,…,AN at his front door and he is wondering if this recipe was prepared by him.
+
+# Chef is a very picky person. He uses one ingredient jar for each type of ingredient and when he stops using a jar, he does not want to use it again later while preparing the same recipe, so ingredients of each type (which is used in his recipe) always appear as a contiguous subsequence. Chef is innovative, too, so he makes sure that in each of his recipes, the quantity of each ingredient (i.e. the number of occurrences of this type of ingredient) is unique ― distinct from the quantities of all other ingredients.
+
+# Determine whether Chef could have prepared the given recipe.
+
+# Input
+# The first line of the input contains a single integer T denoting the number of test cases. The description of T test cases follows.
+# The first line of each test case contains a single integer N.
+# The second line contains N space-separated integers A1,A2,…,AN.
+# Output
+# For each test case, print a single line containing the string "YES" if the recipe could have been prepared by Chef or "NO" otherwise (without quotes).
+
+# Constraints
+# 1≤T≤100
+# 1≤N≤103
+# 1≤Ai≤103 for each valid i
+# Example Input
+# 3
+# 6
+# 1 1 4 2 2 2
+# 8
+# 1 1 4 3 4 7 7 7
+# 8
+# 1 7 7 3 3 4 4 4
+# Example Output
+# YES
+# NO
+# NO
